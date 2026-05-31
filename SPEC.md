@@ -11,7 +11,7 @@
 
 ## 1. Vision & Goals
 
-**Dimitri** is an open-source **Pi Agent Package** that turns Pi into a full-featured **AI Chemistry Harness**, delivering feature parity with the Entropy Labs "Chemistry" demo (YouTube: https://m.youtube.com/watch?v=3RaKdn519H4).
+**Dimitri** is an open-source **Pi Agent Package** that turns Pi into a full-featured **AI Chemistry Harness**.
 
 ### Core Goals
 - One unified, natural-language-driven environment for molecular science
@@ -25,7 +25,7 @@ Named after **Dmitri Mendeleev** (creator of the periodic table).
 
 ---
 
-## 2. Full Feature List (from original demo + extensions)
+## 2. Full Feature List
 
 ### 2.1 Chemistry Engine (Python Backend)
 - **Core libraries**: RDKit, OpenBabel, DeepChem
