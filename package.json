@@ -1,0 +1,23 @@
+{
+  "name": "dimitri",
+  "version": "0.1.0",
+  "description": "Dimitri — Open-source Pi Agent Chemistry Harness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pi-package",
+    "chemistry",
+    "ai-agent",
+    "rdkit",
+    "docking",
+    "admet"
+  ],
+  "author": "lintware",
+  "license": "MIT",
+  "pi": {
+    "skills": ["skills"],
+    "extensions": ["extensions"]
+  }
+}
