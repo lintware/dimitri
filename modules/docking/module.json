@@ -1,0 +1,15 @@
+{
+  "id": "docking",
+  "label": "Docking",
+  "category": "analysis",
+  "panel": "./panel.tsx",
+  "runtime": "engine",
+  "consumes": ["molecules", "proteins"],
+  "produces": ["results"],
+  "tools": ["dock_dataset", "open_module"],
+  "engines": {
+    "rdkit_estimate": { "gpu": false, "platforms": ["mac", "linux", "windows"], "note": "Always-available reproducible affinity estimate; zero extra deps." },
+    "vina": { "gpu": false, "platforms": ["mac", "linux"], "note": "Set DIMITRI_VINA to an AutoDock Vina/smina binary + provide a prepared receptor PDBQT for true physics-based docking." }
+  },
+  "description": "Molecular docking scores. RDKit-based affinity estimate out of the box (offline, no setup); AutoDock Vina binary when configured. Writes a live docking-score column back to the ligand table for generate → dock → rank."
+}

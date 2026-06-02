@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/panels/assistant.tsx","./src/panels/moleculeeditor.tsx","./src/panels/projectdata.tsx","./src/panels/proteineditor.tsx","./src/runtime/engine.ts","./src/runtime/rdkit.ts"],"version":"5.9.3"}

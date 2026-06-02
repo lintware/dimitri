@@ -1,0 +1,66 @@
+[project]
+name = "dimitri-chem"
+version = "0.2.0"
+description = "Dimitri Chemistry Engine — Real molecular design, analog generation, and multi-parameter optimization using RDKit"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "lintware"}
+]
+keywords = ["chemistry", "rdkit", "molecular-design", "analog-generation", "drug-discovery", "pi-agent"]
+
+dependencies = [
+    "rdkit>=2024.9.1",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "pydantic>=2.0",
+    "rich>=13.0",
+    "typer>=0.9",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+]
+
+[project.optional-dependencies]
+docking = [
+    "vina>=1.2.5",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+dimitri-chem = "dimitri_chem.cli:app"
+dimitri-engine = "dimitri_chem.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-ra -q --strict-markers"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+ignore_missing_imports = true

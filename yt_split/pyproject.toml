@@ -1,0 +1,20 @@
+[project]
+name = "yt-split"
+version = "0.1.0"
+description = "Download YouTube video and split into clean video-only + audio-only files using yt-dlp + ffmpeg"
+requires-python = ">=3.10"
+dependencies = [
+    "yt-dlp>=2025.3.31",
+    "typer>=0.12",
+    "rich>=13.0",
+]
+
+[project.scripts]
+yt-split = "yt_split.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []

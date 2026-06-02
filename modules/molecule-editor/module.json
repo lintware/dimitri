@@ -1,0 +1,11 @@
+{
+  "id": "molecule-editor",
+  "label": "Molecule Editor",
+  "category": "editor",
+  "panel": "./panel.tsx",
+  "runtime": "wasm",
+  "consumes": ["molecules"],
+  "produces": ["molecules"],
+  "tools": ["lookup_molecule", "load_molecule", "score_molecule"],
+  "description": "2D + 3D molecule editor. Draw/edit in Ketcher (2D, in-browser via RDKit-WASM) or toggle to an interactive 3Dmol.js ball-and-stick view (conformer from the engine). Live descriptors + designer score; the assistant looks compounds up in PubChem before drawing."
+}

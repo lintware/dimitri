@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dimitri — Chemistry Harness</title>
+    <!-- Earliest-possible fallback before the module bundle loads; the real CJS
+         interop (with raphael, etc.) is set up in src/cjs-shim.ts. -->
+    <script>
+      window.global = window;
+      // Surface a *boot* failure on screen (WKWebView has no visible console).
+      // Only paint if React never mounted — otherwise a recoverable async error
+      // (e.g. a transient engine fetch) must NOT blank a working UI.
+      window.__bootErr = function (msg) {
+        var r = document.getElementById("root");
+        if (r && r.childElementCount > 0) return; // app already rendered; ignore
+        if (!r) return;
+        r.innerHTML =
+          '<pre style="white-space:pre-wrap;color:#ff6b6b;background:#111;padding:16px;font:12px monospace;height:100vh;margin:0;overflow:auto">BOOT ERROR:\n' +
+          String(msg).replace(/</g, "&lt;") +
+          "</pre>";
+      };
+      window.addEventListener("error", function (e) {
+        window.__bootErr((e.error && e.error.stack) || e.message || e.filename + ":" + e.lineno);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

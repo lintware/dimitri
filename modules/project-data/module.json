@@ -1,0 +1,10 @@
+{
+  "id": "project-data",
+  "label": "Project Data",
+  "category": "data",
+  "panel": "./panel.tsx",
+  "runtime": "engine",
+  "consumes": [],
+  "produces": ["molecules", "proteins", "results"],
+  "description": "Live-linked spreadsheet of datasets (analogs, TIHKAL, ADMET, proteins). Reads from the project store and updates as kernels write results."
+}

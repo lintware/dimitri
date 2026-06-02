@@ -1,7 +1,7 @@
 {
   "name": "dimitri",
   "version": "0.1.0",
-  "description": "Dimitri — Open-source Pi Agent Chemistry Harness",
+  "description": "Dimitri — Real molecular design harness for Pi (RDKit + designer MPO scoring)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,0 +1,21 @@
+{
+  "name": "dimitri-assistant",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Dimitri assistant sidecar — embeds pi (createAgentSession) with chemistry tools, exposes a WebSocket the UI's Assistant panel connects to.",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@earendil-works/pi-ai": "^0.78.0",
+    "@earendil-works/pi-coding-agent": "^0.78.0",
+    "typebox": "^1.1.38",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2"
+  }
+}

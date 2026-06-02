@@ -1,0 +1,11 @@
+{
+  "id": "admet",
+  "label": "ADMET",
+  "category": "analysis",
+  "panel": "./panel.tsx",
+  "runtime": "engine",
+  "consumes": ["molecules"],
+  "produces": ["results"],
+  "tools": ["admet_profile"],
+  "description": "Absorption, distribution, metabolism, excretion, toxicity metrics for a molecule library. Adds ADMET columns to the table."
+}

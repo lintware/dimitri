@@ -1,30 +1,39 @@
 #!/bin/bash
-# Dimitri Auto-Provisioning Script
-
+# Dimitri Chemistry Harness - uv-first Auto Provisioning
 set -e
 
-echo "🧬 Dimitri Chemistry Harness - Auto Provisioning"
+echo "🧬 Dimitri — Setting up real molecular design engine (uv + RDKit)"
 
-echo "Checking for Miniconda..."
-if ! command -v conda &> /dev/null; then
-    echo "Installing Miniconda..."
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-    bash miniconda.sh -b -p $HOME/miniconda
-    export PATH="$HOME/miniconda/bin:$PATH"
+# Check for uv
+if ! command -v uv &> /dev/null; then
+    echo "Installing uv (fast Python package manager)..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
-conda env list | grep -q dimitri || {
-    echo "Creating dimitri conda environment..."
-    conda create -y -n dimitri python=3.11
-}
+echo "✅ uv found: $(uv --version)"
 
-source activate dimitri || conda activate dimitri
+# Go to the backend directory (where the real chemistry lives)
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+BACKEND_DIR="$REPO_ROOT/backend"
 
-pip install rdkit openbabel deepchem pandas
+if [ ! -d "$BACKEND_DIR" ]; then
+    echo "❌ backend/ directory not found. Are you inside the dimitri package?"
+    exit 1
+fi
 
-# Docking tools
-conda install -y -c conda-forge vina
+cd "$BACKEND_DIR"
 
-pip install git+https://github.com/gcorso/DiffDock.git  # or prebuilt
+echo "Creating uv environment and installing RDKit + chemistry stack (this downloads ~30MB)..."
+uv sync --dev
 
-echo "✅ Dimitri environment ready!"
+echo ""
+echo "✅ Dimitri chemistry backend ready!"
+echo ""
+echo "Test it right now:"
+echo "  cd backend"
+echo "  uv run dimitri-chem generate --scaffold 'NCCc1c[nH]c2ccccc12' --count 80 --top 8"
+echo ""
+echo "When using inside Pi, the extension will call this automatically."
+echo "You can also use /chem generate <scaffold> from inside Pi."

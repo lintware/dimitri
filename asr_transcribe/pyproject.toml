@@ -1,0 +1,17 @@
+[project]
+name = "qwen-asr-transcriber"
+version = "0.1.0"
+description = "Transcribe audio using Qwen3-ASR (0.6B) with uv"
+requires-python = ">=3.10"
+dependencies = [
+    "qwen-asr>=0.0.6",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "torch>=2.4",
+    "transformers>=4.57.0",
+    "accelerate>=1.0",
+]
+
+[tool.uv]
+# On Apple Silicon we can add torch MPS support if needed
+index-url = "https://pypi.org/simple"

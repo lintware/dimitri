@@ -1,0 +1,11 @@
+{
+  "id": "protein-editor",
+  "label": "Protein Editor",
+  "category": "editor",
+  "panel": "./panel.tsx",
+  "runtime": "engine",
+  "consumes": ["proteins"],
+  "produces": ["proteins"],
+  "tools": ["load_protein", "define_docking_box", "open_module"],
+  "description": "Interactive 3D protein viewer (3Dmol.js) — the lightweight Chimera. Import by PDB ID (fetched + cached via the engine), rotate/zoom, switch styles (cartoon/surface/sticks), focus the ligand pocket, and define a docking box."
+}
